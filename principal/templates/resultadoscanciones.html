@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Búsqueda de cancion </h1>
+{% endblock %}
+
+{% block contenido %}
+
+<center>
+<form id="formulario" method="post" action=''>{% csrf_token %}
+    {{formulario}}
+    <input class='btn btn-secondary' type='submit' value='Realizar Búsqueda'/>
+</form> <br>
+</center>
+
+{% if canciones %}
+
+<center>
+<h3> Canciones encontradas:</h3>
+
+{% for c in canciones %}
+
+<p><b>Canción: </b><a href='/detallescancion/{{c.id}}'>{{c.titulo}}</a> || <b>Participó en: <a href='/detallesevento/{{c.evento.id}}'></b> {{c.evento}}</a> || 
+    <b>Representó a: </b><a href='/detallespais/{{c.pais.id}}'> {{c.pais}}</a> || <b>Puntuación obtenida: </b> {{c.puntos}} </p>
+
+{% endfor %}
+</center>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Canciones agrupadas por países </h1>
+{% endblock %}
+
+{% block contenido %}
+<center>
+    {% for p in paises_page %}
+    
+    <h3 class="list-group-item list-group-item-action list-group-item-primary">Canciones de <a href='/detallespais/{{p.id}}'>{{p.nombre}}</a></h3>
+    <ul class='list-group'>
+    {% for c in p.canciones.all %}
+    <li class="list-group-item list-group-item-action list-group-item-info"><b><a href='/detallescancion/{{c.id}}'>{{c.titulo}}</a></b></li>
+  
+    {% endfor %}
+  
+  </ul> <br>
+
+    {% endfor %}
+  </center>
+
+    <!--Pagination-->
+    <div class="container p-4">
+      <div class="pagination justify-content-center">
+          <span class="step-links">
+            {% if paises_page.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ paises_page.previous_page_number }}">previous</a>
+            {% endif %}
+
+              <span class="current">
+                  Page {{ paises_page.number }} of {{ paises_page.paginator.num_pages }}
+              </span>
+
+            {% if paises_page.has_next %}
+                <a href="?page={{ paises_page.next_page_number }}">next</a>
+                <a href="?page={{ paises_page.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+          </span>
+          </div>
+      </div>
+    
+    <!--end of Pagination-->
+{% endblock %}

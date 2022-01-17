@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> {{mensaje}} </h1>
+{% endblock %}
+
+{%block contenido %}
+<center>
+<form id='form' method='get' action=''>
+    {{form.as_p}}
+    <p><input class='btn btn-secondary' type='submit' value='Confirmar'/></p>
+    </form>
+</center>
+{% endblock %}

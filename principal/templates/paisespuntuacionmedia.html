@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Mejores países por puntuación media </h1>
+{% endblock %}
+
+{% block contenido %}
+  <center>
+    <table class="table table-bordered w-auto">
+      <thead>
+      <tr>
+          <th class="text-center">País</th>
+      
+          <th class="text-center">Puntuación media</th>
+      </tr>
+      </thead>
+      {% for p in paises %}
+      <tr>
+      <td align="center"><a href='/detallespais/{{p.id}}'>{{p.nombre}}</a></td>
+      <td align="center">{{p.avg_puntuacion}}</td>
+      </tr>
+      {% endfor %}
+      </table>
+
+  </center>
+  {% endblock %}

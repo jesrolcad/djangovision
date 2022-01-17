@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Inicio </h1>
+{% endblock %}
+
+  {% block contenido %}
+  <center>
+    <h4>Actualmente la base de datos tiene almacenada la siguiente información sobre el festival de Eurovisión:</h4>
+    <ul class="list-group">
+      <li><b>{{num_canciones}} canciones </b></li> 
+      <li><b>{{num_paises}} países</b></li>
+      <li><b>{{num_eventos}} ediciones de Eurovisión (2016, 2017, 2018, 2019, 2021)</b></li>
+      <li><b>{{num_puntuaciones}} puntuaciones de países a canciones</b></li>
+  
+    </ul> <br>
+
+    <img  src="https://i.imgur.com/wtlbNjR.png" width="300">
+  </center>
+  
+  {% endblock %}

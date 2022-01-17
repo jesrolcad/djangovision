@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Detalles del país</h1>
+{% endblock %}
+
+{% block contenido %}
+
+{% if pais %}
+<center>
+<h3> Visualizando datos del país {{pais}}</h3>
+<table class="table table-bordered w-auto">
+    <thead>
+    <tr>
+        <th>Num. Participaciones</th>
+    
+        <th>Num. Victorias</th>
+    
+        <th>Num. última posición</th>
+    </tr>
+    </thead>
+    <tr>
+    <td>{{pais.participaciones}}</td>
+    <td>{{pais.victorias}}</td>
+    <td>{{pais.ultima_posicion}}</td>
+    </tr>
+    </table>
+
+<p><b>Canciones con las que ha participado:</b></p>
+<table class="table table-bordered w-auto">
+    <thead>
+    <tr>
+        <th>Evento</th>
+        <th>Canción</th>
+        <th>Artista</th>
+        <th>Posición</th>
+        <th>Puntuación</th>
+
+    </tr>
+    </thead>
+    {% for c in pais.canciones.all %}
+    <tr>
+    <td><a href="/detallesevento/{{c.evento.id}}">{{c.evento}}</a></td>
+    <td><a href="/detallescancion/{{c.id}}">{{c.titulo}}</a></td>
+    <td>{{c.artista}}</td>
+    <td>{{c.posicion}}</td>
+    <td>{{c.puntos}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Países recomendados para la canción {{cancion.titulo}} </h1>
+{% endblock %}
+
+{%block contenido %}
+<center>
+{% for item, score in items %}
+<ul class='list-group'>
+<li class="list-group-item list-group-item-action list-group-item-info"><b>País: </b><a href="/detallespais/{{item.id}}"> {{item.nombre}}</a>, <b>Número de victorias: </b> {{item.victorias}}, <b>Puntuación del SR: </b>{{score | floatformat:"2"}}</li>
+</ul>
+{% empty %}
+<h3> No se ha podidio realizar la recomendación debido a datos insuficientes </h3>
+{% endfor %}
+</center>
+{% endblock %}

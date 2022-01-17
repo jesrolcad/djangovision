@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Detalles de la canción {{cancion}} </h1>
+{% endblock %}
+
+{% block contenido %}
+<center>
+    <table class="table w-auto">
+        <thead>
+        <tr>
+        
+            <th>Artista</th>
+        
+            <th>País</th>
+        
+            <th>Edición</th>
+
+            <th>Puntos</th>
+
+            <th>Posición</th>
+        </tr>
+        </thead>
+        <tr>
+        <td>{{cancion.artista}}</td>
+        <td><a href='/detallespais/{{cancion.pais.id}}'>{{cancion.pais}}</a></td>
+        <td><a href='/detallesevento/{{cancion.evento.id}}'> {{cancion.evento}}</a></td>
+        <td>{{cancion.puntos}}</td>
+        <td>{{cancion.posicion}}</td>
+        </table>
+<p><b>Letra de la canción </b></p>
+{% for verso in letra %}
+<p>{{verso}}</p>
+{% endfor %}
+</center>
+
+{% endblock %}

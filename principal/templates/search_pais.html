@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Recomendación de canciones </h1>
+{% endblock %}
+
+{%block contenido %}
+<center>
+<form id='form' method='get' action=''>
+    {{form.as_p}}
+    <input class='btn btn-secondary' type='submit' value='Confirmar'/>
+    </form>
+</center>
+{% endblock %}

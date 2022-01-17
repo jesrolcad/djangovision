@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Mejores canciones {{mensaje}} </h1>
+{% endblock %}
+
+{% block contenido %}
+
+{% if canciones %}
+
+<center>
+<table class="table w-auto">
+    <thead>
+    <tr>
+
+        <th>Edición</th>
+
+        <th>Posición en su edición</th>
+    
+        <th>País</th>
+    
+        <th>Canción</th>
+    
+        <th>Puntuación</th>
+    </tr>
+    </thead>
+    {% for c in canciones %}
+    <tr>
+    <td><a href="/detallesevento/{{c.evento.id}}"> {{c.evento}}</a></td>
+    <td>{{c.posicion}}</td>
+    <td><a href='/detallespais/{{c.pais.id}}'> {{c.pais}}</a></td>
+    <td><a href='/detallescancion/{{c.id}}'>{{c.titulo}}</a></td>
+    <td>{{c.puntos}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+
+</center>
+{% endif %}
+
+{% endblock %}

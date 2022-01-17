@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center">Canciones que más se parecen a {{cancion.titulo}} </h1>
+{% endblock %}
+
+{%block contenido %}
+<center>
+<l class='list-group'>
+    {% for c, s in canciones %}
+    <li class="list-group-item list-group-item-action list-group-item-info"><b>Título: </b><a href="/detallescancion/{{c.id}}"> {{c.titulo}}</a>,
+         <b>Edición: </b> <a href="/detallesevento/{{c.evento.id}}"> {{c.evento}}</a>, <b>Semejanza: </b>{{s | floatformat:"2"}}</li>
+    {% endfor %}
+    </l>
+</center>
+{% endblock %}

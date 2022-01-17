@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+<h1 class="text-center"> Carga del sistema de recomendación. Confirmación </h1>
+{% endblock %}
+
+  {% block contenido %}
+  <center>
+    <h4>Aviso: Este proceso elimina el sistema de recomendación actual y crea uno nuevo</h4>
+    <form id='formulario' method='post' action=''>{% csrf_token %}
+		<input class='btn btn-secondary' type="submit" name="Aceptar" value="Aceptar">
+		<input class='btn btn-secondary' type="submit" name="Cancelar" value="Cancelar">
+	</form>
+</center>
+  {% endblock %}

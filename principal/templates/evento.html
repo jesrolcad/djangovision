@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block encabezado %}
+<h1 class="text-center"> Detalles de la edición </h1>
+{% endblock %}
+
+{% block contenido %}
+<center>
+    <h3> Visualizando datos de {{evento}}</h3>
+    <p><b>Lugar en el que se celebró:</b> {{evento.lugar}} </p>
+    <p><b>Eslógan:</b> {{evento.eslogan}} </p>
+    
+    <h4> Resultados del festival</h4>
+    <table class="table w-auto">
+    <thead>
+    <tr>
+        <th>Posición</th>
+    
+        <th>País</th>
+    
+        <th>Canción</th>
+    
+        <th>Puntuación</th>
+    </tr>
+    </thead>
+    {% for c in evento.canciones.all %}
+    <tr>
+    <td>{{c.posicion}}</td>
+    <td><a href='/detallespais/{{c.pais.id}}'> {{c.pais}}</a></td>
+    <td><a href='/detallescancion/{{c.id}}'>{{c.titulo}}</a></td>
+    <td>{{c.puntos}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+{% endblock %}
