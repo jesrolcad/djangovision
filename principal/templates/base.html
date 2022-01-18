@@ -61,6 +61,7 @@
               <a class="dropdown-item" href="/cancionesimilares">Recomendar canciones similares</a>
             </div>
           </div>
+          {% if user.is_superuser %}
           <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Cargar datos
@@ -70,6 +71,7 @@
               <a class="dropdown-item" href="/cargarSR">Cargar SR</a>
             </div>
           </div>
+          {% endif %}
         </ul>
       </div>
     </nav>

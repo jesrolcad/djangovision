@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block encabezado %}
-<h1 class="text-center"> Detalles del país</h1>
+<h1 class="text-center"> Página de detalle de {{país}}</h1>
 {% endblock %}
 
 {% block contenido %}
 
 {% if pais %}
 <center>
-<h3> Visualizando datos del país {{pais}}</h3>
+<h3> Estadísticas</h3>
 <table class="table table-bordered w-auto">
     <thead>
     <tr>
@@ -26,7 +26,7 @@
     </tr>
     </table>
 
-<p><b>Canciones con las que ha participado:</b></p>
+<h3>Canciones con las que ha participado</h3>
 <table class="table table-bordered w-auto">
     <thead>
     <tr>

@@ -11,6 +11,15 @@ from whoosh.qparser import MultifieldParser
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q, Avg, Count
 
+### FUNCIONALIDADES NUEVAS QUE AÑADIR:
+
+## PUNTUACIONES DE PAÍSES EN CADA EVENTO MEDIANTE UN FORMULARIO QUE ELIJA EVENTO Y PAÍS
+## ACCESO RESTRINGIDO PARA CARGAR LA BD O EL SISTEMA DE RECOMENDACIÓN 
+## AÑADIR USUARIOS (AMPLIAR EL MODELO USER) Y QUE ESTOS PUEDAN VOTAR CANCIONES
+## TOP DE CANCIONES SEGÚN PUNTUACIONES DE USUARIOS
+## MY PERFECT EUROVISION: QUE UN USUARIO PUEDA CREAR SU PROPIA EDICIÓN DE EUROVISIÓN Y AÑADIRLE CANCIONES
+## AÑADIR IMÁGENES DE LAS BANDERITAS DE LOS PAÍSES
+
 
 #carga los datos desde la web en la BD
 def carga(request):
@@ -287,8 +296,7 @@ def similarSongs(request):
     return render(request,'search_cancion.html', {'form': form, 'mensaje':'Canciones similares'})
 
 def error_404_view(request, exception):
-    data = {"name": "ThePythonDjango.com"}
-    return render(request,'error_404.html', data)
+    return render(request,'error_404.html')
 
 
 
