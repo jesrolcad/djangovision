@@ -156,6 +156,20 @@ def mejores_canciones_finalistas(request):
     canciones = Cancion.objects.filter(posicion__lt = 26).order_by('-puntos')[:10]
     return render(request, 'mejorescanciones.html', {'canciones':canciones, 'mensaje':"finalistas"})
 
+#Canciones que más veces han recibido 12 puntos. Agrupo por cancion y después veo para cada canción cuantos doce puntos ha obtenido
+def canciones_doce_puntos(request):
+    #El group by es muy importante para forzar la agrupación después de utilizar el método values()
+    #Sobre la tabla puntuaciones
+    #puntuaciones = Puntuacion.objects.filter(puntuacion=12).values('id_cancion').annotate(num_doce_puntos = Count('puntuacion')).order_by('id_cancion', '-num_doce_puntos')[:10]
+    #print(puntuaciones)
+
+    #Sobre la tabla canciones. Fijarse en la sintaxis 
+    canciones = Cancion.objects.annotate(num_doce_puntos = Count('puntuacion', filter=Q(puntuacion__puntuacion = 12))).order_by('-num_doce_puntos')[:10]
+    return render(request, 'estadisticascanciones.html', {'canciones':canciones})
+
+
+
+
 ### SISTEMAS DE RECOMENDACIÓN ### 
 def loadDict():
     Prefs={}  

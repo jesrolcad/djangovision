@@ -34,6 +34,7 @@ urlpatterns = [
     path('cancionesporpuntuacion/', views.canciones_mejor_puntuacion),
     path('mejoressemifinalistas/', views.mejores_canciones_semifinalistas),
     path('mejoresfinalistas/', views.mejores_canciones_finalistas),
+    path('cancionesmasdocepuntos/', views.canciones_doce_puntos),
     path('cargarSR/', views.loadRS),
     path('recomendarcancionespais/', views.recommendedSongsCountry),
     path('recomendarcancionesitems/', views.recommendedSongsItems),
