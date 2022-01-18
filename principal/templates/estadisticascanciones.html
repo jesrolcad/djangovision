@@ -10,18 +10,21 @@
 <table class="table table-bordered w-auto">
     <thead>
     <tr>
-        <th>Canción</th>
+        <th class="text-center">Canción</th>
     
-        <th>País</th>
+        <th class="text-center">País</th>
+
+        <th class="text-center">Edición</th>
     
-        <th>Num. 12 puntos</th>
+        <th class="text-center">Num. 12 puntos</th>
     </tr>
     </thead>
     {% for c in canciones %}
     <tr>
-    <td>{{c.titulo}}</td>
-    <td>{{c.pais}}</td>
-    <td>{{c.num_doce_puntos}}</td>
+    <td class="text-center"><a href="/detallescancion/{{c.id}}"> {{c}}</a></td>
+    <td class="text-center"><a href="/detallespais/{{c.pais.id}}"> {{c.pais}}</a></td>
+    <td class="text-center"><a href="/detallesevento/{{c.evento.id}}"> {{c.evento}}</a></td>
+    <td class="text-center">{{c.num_doce_puntos}}</td>
     <!-- <td>{{p.num_doce_puntos}}</td> -->
     </tr>
     {% endfor %}
